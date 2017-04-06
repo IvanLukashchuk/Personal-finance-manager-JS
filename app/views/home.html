@@ -1,0 +1,21 @@
+<div>
+	<h1>Home page</h1>
+
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus fugiat voluptas sequi placeat excepturi illum magnam blanditiis soluta, dolorum quod. In illum magni voluptas omnis voluptate, quas odio, neque, nulla repellat repudiandae necessitatibus ducimus odit earum dolore et asperiores labore.</p>
+
+	<ul>
+		<li ng-repeat="item in ctrl.items">
+			{{item.text}}
+		</li>
+	</ul>
+
+
+	<form ng-submit="ctrl.addItem()">
+		<input type="text" ng-model="ctrl.text">
+		<button type="submit">Add</button>
+	</form>
+
+
+
+</div>

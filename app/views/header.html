@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+  	<div class="container-fluid">
+	    <ul class="nav navbar-nav">
+
+	        <li ui-sref-active="active" ng-repeat="route in ctrl.states">
+	        	<a href ui-sref="{{route.name}}">{{route.title}}</a>
+
+	        </li>
+
+	    </ul>
+   	</div>
+</nav>
