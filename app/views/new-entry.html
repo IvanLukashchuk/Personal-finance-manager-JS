@@ -1,0 +1,22 @@
+<form ng-submit="ctrl.addEntry()">
+    Type:
+    <div class="form-group">
+        <input type="text" ng-model="ctrl.entry.type" class="form-control">
+    </div>
+    Category:
+    <div class="form-group">
+        <input type="email" ng-model="ctrl.entry.category" class="form-control">
+    </div>
+    Amount:
+    <div class="form-group">
+        <input type="number" ng-model="ctrl.entry.amount" class="form-control" ng-minlength="3">
+    </div>
+    <div flex-gt-xs>
+        <h4>Date:</h4>
+        <md-datepicker ng-model="ctrl.entry.date" md-placeholder="Enter date"></md-datepicker>
+    </div>
+    <button class="btn btn-primary" type="submit">LogIn</button>
+    <div>
+        {{ctrl.message}}
+    </div>
+</form>

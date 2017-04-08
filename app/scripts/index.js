@@ -7,12 +7,14 @@ import userService from './common/services/userService.js';
 import loginModule from './modules/login';
 
 import uibModal from 'angular-ui-bootstrap/src/modal';
+import ngMaterial from 'angular-material';
 
 
 angular.module('app', [
 	uiRouter,
     uibModal,
     loginModule.name,
+    ngMaterial
 ])
 .config(routeConfig)
 .service('userService', userService)
