@@ -3,8 +3,8 @@
 import angular from 'angular';
 import routeConfig from './router.js';
 
-let adminModule = angular.module('app.login', []);
+let loginModule = angular.module('app.login', []);
 
-adminModule.config(routeConfig);
+loginModule.config(routeConfig);
 
-export default adminModule;
+export default loginModule;

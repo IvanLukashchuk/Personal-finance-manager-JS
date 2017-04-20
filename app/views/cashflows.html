@@ -1,0 +1,39 @@
+<div class="container-fluid">
+	<div class="row">
+		<table class="table">
+			<thead>
+				<th>#1</th>
+				<th>Date</th>
+				<th>Type</th>
+				<th>Category</th>
+				<th>Amount</th>
+			</thead>
+			<tr ng-repeat="cashflow in ctrl.cashflowList">
+				<td>{{$index}}</td>
+				<td>
+					{{ cashflow.date | date :  "dd-MM-yyyy hh:mm:ss" }}
+				</td>
+				<td>
+					{{cashflow.type}}
+				</td>
+				<td>
+					{{cashflow.category}}
+				</td>
+				<td>
+					<a href ng-click="ctrl.open($index)">{{cashflow.amount}}</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div>
+		Total: {{ctrl.total()}}
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<a href class="btn btn-success" ui-sref="cashflow.createCashflow">Add cashflow</a>
+		</div>
+	</div>
+
+</div>

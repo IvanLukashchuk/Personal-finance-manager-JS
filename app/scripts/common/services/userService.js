@@ -20,7 +20,7 @@ export default class UserService{
             email: 'admin@gmail.com',
             age: 55,
             pass: 'admin',
-			permission: 'admin'
+			permission: 'cashflow'
         }
 		];
 	}

@@ -1,22 +1,54 @@
 'use strict';
 
-export default class ManagerService{
+export default class CategoryService{
     constructor($timeout){
         'ngInject';
 
         this.$timeout = $timeout;
-        this.categories = {
-            income: [
-                'salary',
-                'other'
-            ],
-            consumption: [
-                'food',
-                'entertainment',
-                'rent',
-                'other'
-            ]
-        };
+        this.categories = [
+            {
+                type: 'income',
+                multiplier: 1,
+                values: [
+                    'salary',
+                    'passive',
+                    'other'
+                ]
+            },
+            {
+                type: 'consumption',
+                multiplier: -1,
+                values: [
+                    'food',
+                    'entertainment',
+                    'rent',
+                    'other'
+                ]
+            }
+        ];
     }
 
+    getCategories(){
+        return this.categories.map((category) => category.type);
+    }
+
+    getCategoriesByType(type){
+        for(let i = 0; i < this.categories.length; i++){
+            let category = this.categories[i];
+            if (category.type === type){
+                return category.values;
+            }
+        }
+        return [];
+    }
+
+    getCategoryByType(type){
+            for(let i = 0; i < this.categories.length; i++){
+                let category = this.categories[i];
+                if (category.type === type){
+                    return category;
+                }
+            }
+        return null;
+    }
 }
