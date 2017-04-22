@@ -37,7 +37,19 @@ export default ($stateProvider)=>{
                     'ngInject';
 
 		  			return cashflowService.getCashflowsList();
-		  		}
+		  		},
+				userAuthorized: ($state, userService, $q)=>{
+                    'ngInject';
+
+                    let deferred = $q.defer()
+                    if(userService.authorizedUser){
+                        deferred.resolve();
+                    } else {
+                        $state.go('login');
+                        deferred.reject();
+                    }
+                    return deferred.promise;
+                }
 		  	},
 			permission: 'cashflow'
 		})

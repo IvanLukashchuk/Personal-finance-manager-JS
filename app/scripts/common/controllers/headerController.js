@@ -7,7 +7,7 @@ export default class HeaderController{
 		let states = $state.get();
 		console.log(states);
 		this.states = states.filter((state) =>{
-			if (!state.abstract) {
+			if (!state.abstract && (state.permission === 'cashflow' && userService.authorizedUser) || state.permission !== 'cashflow') {
                 return state.title;
             }
 		});
