@@ -24,6 +24,14 @@ export default class CashflowListController{
         return this.cashflowService.total(this.cashflowList);
     }
 
+    totalInflow(){
+        return this.cashflowService.totalInflow(this.cashflowList);
+    }
+
+    totalOutflow(){
+        return this.cashflowService.totalOutflow(this.cashflowList);
+    }
+
 	open(id){
 		let cashflowService = this.cashflowService;
 		this.id = id;

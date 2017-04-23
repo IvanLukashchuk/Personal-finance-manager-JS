@@ -15,7 +15,7 @@ export default class CashflowService{
             currency: 'UAH'
         },{
             id: 1,
-            type: 'consumption',
+            type: 'expense',
             date: new Date(),
             category: 'food',
             amount: -12.45,
@@ -58,6 +58,26 @@ export default class CashflowService{
         let total = 0;
         for (let i = 0; i < cashflowList.length; i++) {
             total += cashflowList[i].amount;
+        }
+        return total;
+    }
+
+    totalInflow(cashflowList) {
+        let total = 0;
+        for (let i = 0; i < cashflowList.length; i++) {
+            if (cashflowList[i].amount > 0) {
+                total += cashflowList[i].amount;
+            }
+        }
+        return total;
+    }
+
+    totalOutflow(cashflowList) {
+        let total = 0;
+        for (let i = 0; i < cashflowList.length; i++) {
+            if (cashflowList[i].amount < 0) {
+                total += cashflowList[i].amount;
+            }
         }
         return total;
     }

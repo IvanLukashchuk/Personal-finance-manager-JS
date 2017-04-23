@@ -16,7 +16,7 @@ export default class CategoryService{
                 ]
             },
             {
-                type: 'consumption',
+                type: 'expense',
                 multiplier: -1,
                 values: [
                     'food',
