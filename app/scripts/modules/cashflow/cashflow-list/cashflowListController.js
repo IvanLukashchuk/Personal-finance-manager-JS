@@ -11,6 +11,9 @@ export default class CashflowListController{
 		this.$state = $state;
 		this.editTmpl = editTmpl;
 		this.editCashflowCtrl = editCashflowCtrl;
+		this.total = this.total();
+		this.totalInflow = this.totalInflow();
+		this.totalOutflow = this.totalOutflow();
 		// this._isEmptyList();
 	}
 
@@ -54,6 +57,13 @@ export default class CashflowListController{
             cashflowService.saveCashflow(id, selectedItem);
         });
 	}
+
+	getColor(amount){
+	    if (amount >= 0){
+	        return {color: 'green'}
+        }
+        return {color: 'red'}
+    }
 }
 
 

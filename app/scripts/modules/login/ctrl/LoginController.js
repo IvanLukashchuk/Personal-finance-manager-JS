@@ -14,11 +14,11 @@ export default class LoginController {
 		let authorizedUser = this.userService.authorizeAndGetUser(user);
 		if (authorizedUser){
 
-			if (authorizedUser.permission === 'cashflow'){
-                this.$state.go('cashflow.cashflows');
-				return;
-            }
-            this.$state.go('home');
+            // if (authorizedUser.permission === 'cashflow'){
+            //     this.$state.go('cashflow.cashflows');
+				// return;
+            // }
+            this.$state.go('cashflow.cashflows');
         }
 	}
 }

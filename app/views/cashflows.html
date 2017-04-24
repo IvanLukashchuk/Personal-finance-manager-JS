@@ -1,36 +1,31 @@
 <div class="container-fluid">
 	<md-content md-theme="docs-dark" layout-padding>
-		<span class="md-headline">Inflow  {{ctrl.totalInflow()}}</span>
+		<span class="md-headline">Inflow   <strong ng-style="ctrl.getColor(ctrl.totalInflow)">{{ctrl.totalInflow}}</strong></span>
 	</md-content>
 	<md-content md-theme="docs-dark" layout-padding>
-	<span class="md-headline">Outflow  {{ctrl.totalOutflow()}}</span>
+		<span class="md-headline">Outflow  <strong ng-style="ctrl.getColor(ctrl.totalOutflow)">{{ctrl.totalOutflow}}</strong></span>
 	</md-content>
 	<md-content md-theme="docs-dark" layout-padding>
-		<span class="md-headline">Total  {{ctrl.total()}}</span>
+		<span class="md-headline">Total  <strong ng-style="ctrl.getColor(ctrl.total)">{{ctrl.total}}</strong></span>
 	</md-content>
 
 	<div class="row">
 		<table class="table">
 			<thead>
-				<th>#1</th>
 				<th>Date</th>
-				<th>Type</th>
 				<th>Category</th>
 				<th>Amount</th>
 			</thead>
 			<tr ng-repeat="cashflow in ctrl.cashflowList">
-				<td>{{$index}}</td>
 				<td>
-					{{cashflow.date | date :  "dd-MM-yyyy hh:mm:ss" }}
+					<h3>{{cashflow.date | date :  "dd-MM-yyyy hh:mm:ss" }}</h3>
 				</td>
 				<td>
-					{{cashflow.type}}
+					<h3>{{cashflow.category}}</h3>
 				</td>
 				<td>
-					{{cashflow.category}}
-				</td>
-				<td>
-					<a href ng-click="ctrl.open($index)">{{cashflow.amount}}</a>
+					<!--<a href ng-click="ctrl.open($index)">{{cashflow.amount}}</a>-->
+					<span ng-style="ctrl.getColor(cashflow.amount)"><h3><strong>{{cashflow.amount}}</strong></h3></span>
 				</td>
 			</tr>
 		</table>
@@ -38,7 +33,8 @@
 
 	<div class="row">
 		<div class="col-xs-12">
-			<a href class="btn btn-success" ui-sref="cashflow.createCashflow">Add cashflow</a>
+			<md-button href ui-sref="cashflow.createCashflow({type:'income'})" class="md-raised md-primary">Add Income</md-button>
+			<md-button href ui-sref="cashflow.createCashflow({type:'expense'})" class="md-raised md-warn">Add Expense</md-button>
 		</div>
 	</div>
 

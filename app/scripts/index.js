@@ -13,18 +13,20 @@ import uibModal from 'angular-ui-bootstrap/src/modal';
 import angularMaterial from 'angular-material';
 import angularAnimate from 'angular-animate';
 import angularAria from 'angular-aria';
+import angularChart from 'angular-chart.js';
 
 import 'angular/angular-csp.css';
 import 'angular-material/angular-material.css';
 
 angular.module('app', [
-	uiRouter,
-    uibModal,
-    loginModule.name,
-    cashflowModule.name
+	uiRouter
+    ,uibModal
+	,loginModule.name
+    ,cashflowModule.name
     ,angularMaterial
     ,angularAnimate
     ,angularAria
+    ,angularChart
 ])
 .config(routeConfig)
 .service('userService', userService)

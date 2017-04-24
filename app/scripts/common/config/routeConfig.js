@@ -22,7 +22,7 @@ export default ($stateProvider, $locationProvider, $urlRouterProvider)=>{
 	$stateProvider
 		.state('home', {
 			url: '/home',
-			title: 'Home',
+			// title: 'Home',
 		  	views: {
 		  		'header': header,
 		  		'': {

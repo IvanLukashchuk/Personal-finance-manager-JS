@@ -51,4 +51,8 @@ export default class CategoryService{
             }
         return null;
     }
+
+    addCategory(type, category){
+        this.getCategoriesByType(type).push(category);
+    }
 }

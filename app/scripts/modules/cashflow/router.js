@@ -6,6 +6,7 @@ import CashflowListCtrl from './cashflow-list/cashflowListController.js';
 import CashflowCtrl from './cashflow-view/cashflowController.js';
 import editCashflowCtrl from './edit-cashflow/cashflowEditController.js';
 import CategoriesCtrl from './categories/categoriesController.js';
+import OverviewCtrl from './overview/overviewController.js';
 
 import headerTemplate from  'views/header.html';
 import cashflowsTemplate from  'views/cashflows.html';
@@ -13,6 +14,7 @@ import createCashflowTemplate from  'views/create-cashflow.html';
 import cashflowTemplate from  'views/cashflow.html';
 import editTmpl from 'views/edit-cashflow.html';
 import categoriesTemplate from 'views/categories.html';
+import overviewTemplate from 'views/overview.html';
 
 
 
@@ -70,8 +72,11 @@ export default ($stateProvider)=>{
 
 		})
 		.state('cashflow.createCashflow', {
-			url: '/cashflow-create',
-			title: 'Create New Transaction',
+			url: '/cashflow-create/:type',
+			params: {
+				type: null
+			},
+			// title: 'Create New Transaction',
 		  	template: createCashflowTemplate,
 		  	controller: CreateCashflowCtrl,
 		  	controllerAs: 'ctrl',
@@ -105,5 +110,13 @@ export default ($stateProvider)=>{
             controller: CategoriesCtrl,
             controllerAs: 'ctrl',
             permission: 'cashflow'
-        });
+        })
+		.state('cashflow.overview', {
+			url: '/overview',
+			title: 'Overview',
+			template: overviewTemplate,
+			controller: OverviewCtrl,
+			controllerAs: 'ctrl',
+			permission: 'cashflow'
+   		});
 }
