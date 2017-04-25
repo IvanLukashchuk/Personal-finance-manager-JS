@@ -1,67 +1,78 @@
 'use strict';
 
 export default class UserService{
-	constructor($timeout){
+	constructor(categoryService, cashflowService) {
         'ngInject';
 
-		this.$timeout = $timeout;
-		this.users = [{
-			name: 'John',
-			email: 'john@gmail.com',
-			age: 45,
-			pass: 'qwe'
-		},{
-			name: 'user',
-			email: 'user@gmail.com',
-			age: 55,
-			pass: 'user'
-		},{
-            name: 'admin',
-            email: 'admin@gmail.com',
-            age: 55,
-            pass: 'admin',
-			permission: 'cashflow'
-        }
-		];
+        this.categoryService = categoryService;
+        this.cashflowService = cashflowService;
+        this.user = {
+            name: 'user',
+            pass: 'user',
+            categories: [
+                {
+                    type: 'income',
+                    multiplier: 1,
+                    values: [
+                        'Salary',
+                        'Passive',
+                        'Other'
+                    ]
+                },
+                {
+                    type: 'expense',
+                    multiplier: -1,
+                    values: [
+                        'Food',
+                        'Entertainment',
+                        'Rent',
+                        'Other'
+                    ]
+                }
+            ],
+            cashflowList: [{
+                id: 0,
+                type: 'income',
+                date: new Date('2017-03-21'),
+                category: 'salary',
+                amount: 459.654,
+                currency: 'UAH'
+            }, {
+                id: 1,
+                type: 'expense',
+                date: new Date('2017-03-24'),
+                category: 'food',
+                amount: -12.45,
+                currency: 'UAH'
+            }]
+        };
+        if (!localStorage.getItem(this.user.name)) {
+			localStorage.setItem(this.user.name, JSON.stringify(this.user));
+		}
 	}
 
 	addUser(user){
-		this.users.push(user);
+        user.categories = this.user.categories;
+        user.cashflowList = [];
+        localStorage.setItem(user.name, JSON.stringify(user));
 	}
 
-    saveUser(id, user){
-        this.users[id] = user;
-    }
-
-	getUsersList(){
-		return this.$timeout(()=>{
-			return this.users;
-		}, 0);
-
-	}
-
-	getUser(id, list){
-		if (list){
-			return list[id];
-		}
-
-		return this.loadUser(id);
-	}
-
-	loadUser(id){
-		return JSON.parse(JSON.stringify(this.users[id]));
+	update(){
+        localStorage.setItem(this.authorizedUser.name, JSON.stringify(this.authorizedUser));
 	}
 
     authorizeAndGetUser(user){
-        for (let i = 0; i < this.users.length; i++){
-             let storedUser = this.users[i];
+        let loadedUser = localStorage.getItem(user.name);
+        if (loadedUser){
+             let storedUser = JSON.parse(loadedUser);
              if (user.name === storedUser.name && user.pass === storedUser.pass){
              	this.authorizedUser = storedUser;
+             	this.categoryService.categories = storedUser.categories;
+             	this.cashflowService.cashflowList = storedUser.cashflowList;
              	return storedUser;
 			 }
 		}
         this.authorizedUser = undefined;
 		return undefined;
     }
-
 }

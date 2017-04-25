@@ -13,12 +13,10 @@ export default class LoginController {
 		let user = this.user;
 		let authorizedUser = this.userService.authorizeAndGetUser(user);
 		if (authorizedUser){
-
-            // if (authorizedUser.permission === 'cashflow'){
-            //     this.$state.go('cashflow.cashflows');
-				// return;
-            // }
+            this.message = '';
             this.$state.go('cashflow.cashflows');
-        }
+        } else {
+            this.message = '*Wrong username or password!';
+		}
 	}
 }

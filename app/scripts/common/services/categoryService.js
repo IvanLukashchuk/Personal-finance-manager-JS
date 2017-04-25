@@ -1,10 +1,10 @@
 'use strict';
 
 export default class CategoryService{
-    constructor($timeout){
+    constructor($injector){
         'ngInject';
 
-        this.$timeout = $timeout;
+        this.$injector = $injector;
         this.categories = [
             {
                 type: 'income',
@@ -54,5 +54,6 @@ export default class CategoryService{
 
     addCategory(type, category){
         this.getCategoriesByType(type).push(category);
+        this.$injector.get('userService').update();
     }
 }

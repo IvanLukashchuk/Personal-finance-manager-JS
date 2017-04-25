@@ -12,7 +12,7 @@ export default class RegistrationController {
 	register() {
         let user = this.user;
         if (user.pass === user.pass2) {
-        	this.userService.users.push({name: user.name, email: user.email, pass: user.pass})
+        	this.userService.addUser({name: user.name, email: user.email, pass: user.pass});
 			this.$state.go("login")
     	} else {
         	this.message = "Passwords mismatch"

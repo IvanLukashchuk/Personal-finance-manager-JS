@@ -1,11 +1,11 @@
 'use strict';
 
 export default class CashflowService{
-    constructor($timeout, categoryService){
+    constructor($injector, categoryService){
         'ngInject';
 
         this.categoryService = categoryService;
-        this.$timeout = $timeout;
+        this.$injector = $injector;
         this.cashflowList = [{
             id: 0,
             type: 'income',
@@ -31,11 +31,13 @@ export default class CashflowService{
     saveCashflow(id, cashflow){
         this.multiplyAmount(cashflow);
         this.cashflowList[id] = cashflow;
+        this.$injector.get('userService').update();
     }
 
     addCashflow(cashflow){
         this.multiplyAmount(cashflow);
         this.cashflowList.push(cashflow);
+        this.$injector.get('userService').update();
     }
 
     multiplyAmount(cashflow){

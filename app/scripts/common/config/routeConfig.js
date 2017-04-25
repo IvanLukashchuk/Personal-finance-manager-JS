@@ -33,5 +33,5 @@ export default ($stateProvider, $locationProvider, $urlRouterProvider)=>{
 		  	}
 		});
 
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/login');
 }
