@@ -1,7 +1,7 @@
 'use strict';
 
-import componentTemplate from './amount-component.html';
-import componentController from './amountComponentController.js';
+import componentTemplate from 'scripts/common/components/amountComponent/amount-component.html';
+import componentController from 'scripts/common/components/amountComponent/amountComponentController.js';
 
 export default {
     template: componentTemplate,

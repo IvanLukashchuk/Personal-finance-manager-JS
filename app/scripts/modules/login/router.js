@@ -1,8 +1,8 @@
 'use strict';
 
 import HeaderController from 'scripts/common/controllers/headerController.js';
-import LoginController from './ctrl/loginController.js';
-import RegistrationController from './ctrl/registrationController.js';
+import LoginController from 'scripts/modules/login/ctrl/loginController.js';
+import RegistrationController from 'scripts/modules/login/ctrl/registrationController.js';
 
 import loginTemplate from 'views/login.html';
 import headerTemplate from  'views/header.html';
