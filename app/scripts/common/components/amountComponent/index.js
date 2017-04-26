@@ -1,6 +1,6 @@
 'use strict';
 
-import componentTemplate from './amiunt-component.html';
+import componentTemplate from './amount-component.html';
 import componentController from './amountComponentController.js';
 
 export default {
