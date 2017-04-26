@@ -40,9 +40,9 @@ module.exports = {
             }
         ]
 	},
-	resolve: {
-		root: path.join(__dirname, '/app')
-	},
+	// resolve: {
+	// 	root: path.join(__dirname, '/app')
+	// },
     devServer: {
         port: 8081
     },
