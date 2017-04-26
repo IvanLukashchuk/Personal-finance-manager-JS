@@ -7,5 +7,4 @@ let cashflowModule = angular.module('app.cashflow', []);
 
 cashflowModule.config(routeConfig);
 
-
 export default cashflowModule;

@@ -8,6 +8,7 @@ import categoryService from './common/services/categoryService.js';
 import cashflowService from './common/services/cashflowService.js';
 import loginModule from './modules/login';
 import cashflowModule from './modules/cashflow';
+import amountComponent from './common/components/amountComponent';
 
 import uibModal from 'angular-ui-bootstrap/src/modal';
 import angularMaterial from 'angular-material';
@@ -32,6 +33,7 @@ angular.module('app', [
 .service('userService', userService)
 .service('categoryService', categoryService)
 .service('cashflowService', cashflowService)
+.component('amount', amountComponent)
 
 .run(function($rootScope){
     'ngInject';

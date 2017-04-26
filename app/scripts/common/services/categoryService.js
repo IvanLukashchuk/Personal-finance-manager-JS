@@ -10,19 +10,19 @@ export default class CategoryService{
                 type: 'income',
                 multiplier: 1,
                 values: [
-                    'salary',
-                    'passive',
-                    'other'
+                    'Salary',
+                    'Passive',
+                    'Deposit'
                 ]
             },
             {
                 type: 'expense',
                 multiplier: -1,
                 values: [
-                    'food',
-                    'entertainment',
-                    'rent',
-                    'other'
+                    'Food',
+                    'Entertainment',
+                    'Rent',
+                    'Transport'
                 ]
             }
         ];

@@ -16,7 +16,7 @@ export default class UserService{
                     values: [
                         'Salary',
                         'Passive',
-                        'Other'
+                        'Deposit'
                     ]
                 },
                 {
@@ -26,24 +26,41 @@ export default class UserService{
                         'Food',
                         'Entertainment',
                         'Rent',
-                        'Other'
+                        'Transport'
                     ]
                 }
             ],
             cashflowList: [{
-                id: 0,
                 type: 'income',
-                date: new Date('2017-03-21'),
-                category: 'salary',
-                amount: 459.654,
-                currency: 'UAH'
+                date: new Date('2017-04-21'),
+                category: 'Salary',
+                amount: 459.654
             }, {
-                id: 1,
+                date: new Date('2017-03-21'),
+                category: 'Salary',
+                amount: 459.654
+            }, {
                 type: 'expense',
                 date: new Date('2017-03-24'),
-                category: 'food',
-                amount: -12.45,
-                currency: 'UAH'
+                category: 'Food',
+                amount: -12.45
+            }, { type: 'expense',
+                date: new Date('2017-02-14'),
+                category: 'Food',
+                amount: -12.45
+            }, {
+                date: new Date('2017-02-21'),
+                category: 'Salary',
+                amount: 459.654
+            }, {
+                date: new Date('2017-01-21'),
+                category: 'Salary',
+                amount: 459.654
+            }, {
+                type: 'expense',
+                date: new Date('2017-02-04'),
+                category: 'Food',
+                amount: -31.45
             }]
         };
         if (!localStorage.getItem(this.user.name)) {

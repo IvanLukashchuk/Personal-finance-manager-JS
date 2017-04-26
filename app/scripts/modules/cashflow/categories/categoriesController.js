@@ -9,6 +9,10 @@ export default class CategoriesController{
 		this.categoryService = categoryService;
 	}
 
+
+    getAmountByCategory(item){
+        return this.cashflowService.getAmountByCategory(item);
+	}
 }
 
 

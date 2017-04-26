@@ -10,22 +10,22 @@ export default class CashflowService{
             id: 0,
             type: 'income',
             date: new Date(),
-            category: 'salary',
+            category: 'Salary',
             amount: 459.654,
             currency: 'UAH'
         },{
             id: 1,
             type: 'expense',
             date: new Date(),
-            category: 'food',
+            category: 'Food',
             amount: -12.45,
             currency: 'UAH'
-        }
-        ];
+        }];
     }
 
     getCashflowsList(){
-        return this.cashflowList;
+        return this.cashflowList.sort((a,b) =>
+            {return new Date(a.date).getTime() < new Date(b.date).getTime() ? 1 : -1});
     }
 
     saveCashflow(id, cashflow){
@@ -36,7 +36,7 @@ export default class CashflowService{
 
     addCashflow(cashflow){
         this.multiplyAmount(cashflow);
-        this.cashflowList.push(cashflow);
+        this.cashflowList.unshift(cashflow);
         this.$injector.get('userService').update();
     }
 
@@ -61,7 +61,7 @@ export default class CashflowService{
         for (let i = 0; i < cashflowList.length; i++) {
             total += cashflowList[i].amount;
         }
-        return total;
+        return Math.round(total * 100) / 100;
     }
 
     totalInflow(cashflowList) {
@@ -71,7 +71,7 @@ export default class CashflowService{
                 total += cashflowList[i].amount;
             }
         }
-        return total;
+        return Math.round(total * 100) / 100;
     }
 
     totalOutflow(cashflowList) {
@@ -81,6 +81,17 @@ export default class CashflowService{
                 total += cashflowList[i].amount;
             }
         }
-        return total;
+        return Math.round(total * 100) / 100;
+    }
+
+    getAmountByCategory(category){
+        let total = 0;
+        for (let i = 0; i < this.cashflowList.length; i++) {
+            let cashflow = this.cashflowList[i];
+            if (cashflow.category === category) {
+                total += cashflow.amount;
+            }
+        }
+        return Math.round(total * 100) / 100;
     }
 }

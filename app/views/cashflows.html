@@ -10,6 +10,14 @@
 	</md-content>
 
 	<div class="row">
+		<div class="col-xs-12">
+			<md-button href ui-sref="cashflow.createCashflow({type:'income'})" class="md-raised md-primary">Add Income</md-button>
+			<md-button href ui-sref="cashflow.createCashflow({type:'expense'})" class="md-raised md-warn">Add Expense</md-button>
+		</div>
+	</div>
+
+
+	<div class="row">
 		<table class="table">
 			<thead>
 				<th>Date</th>
@@ -25,17 +33,10 @@
 				</td>
 				<td>
 					<!--<a href ng-click="ctrl.open($index)">{{cashflow.amount}}</a>-->
-					<span ng-style="ctrl.getColor(cashflow.amount)"><h3><strong>{{cashflow.amount}}</strong></h3></span>
+					<amount amount="cashflow.amount"></amount>
 				</td>
 			</tr>
 		</table>
-	</div>
-
-	<div class="row">
-		<div class="col-xs-12">
-			<md-button href ui-sref="cashflow.createCashflow({type:'income'})" class="md-raised md-primary">Add Income</md-button>
-			<md-button href ui-sref="cashflow.createCashflow({type:'expense'})" class="md-raised md-warn">Add Expense</md-button>
-		</div>
 	</div>
 
 </div>

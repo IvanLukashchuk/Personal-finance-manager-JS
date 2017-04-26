@@ -10,13 +10,14 @@
 
 	<ui-view name="header" flex></ui-view>
 
-	<ui-view flex>
-		Loading . . .
-		<div layout="row" layout-sm="column" layout-align="space-around">
-			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
-		</div>
-	</ui-view>
-
+	<div flex="90" style="padding-left: 5%">
+		<ui-view>
+			Loading . . .
+			<div layout="row" layout-sm="column" layout-align="space-around">
+				<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+			</div>
+		</ui-view>
+	</div>
 	<script src="public/bundle.js"></script>
 </body>
 </html>
